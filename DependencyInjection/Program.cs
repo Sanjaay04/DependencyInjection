@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<Iproductservice,DependencyInjection.Service.ProductService>();
 builder.Services.AddSingleton<Ilogger,LoggerService>();
-
+builder.Services.AddTransient<Idiscount,discountservice>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline

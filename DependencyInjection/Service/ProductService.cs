@@ -1,6 +1,7 @@
 ﻿using DependencyInjection.Interface;
 using DependencyInjection.Model;
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace DependencyInjection.Service
 {
@@ -20,8 +21,9 @@ namespace DependencyInjection.Service
             using (var connection = new SqlConnection(_cong))
             {
                 connection.Open();
-                using (var command = new SqlCommand("SELECT Id, Name, Price FROM Products", connection))
+                using (var command = new SqlCommand("GetAllProducts", connection))
                 {
+                    command.CommandType = CommandType.StoredProcedure;
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
