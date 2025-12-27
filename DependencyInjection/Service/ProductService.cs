@@ -39,6 +39,5 @@ namespace DependencyInjection.Service
 
             return products;
         }
-
-    }
+   }
 }
